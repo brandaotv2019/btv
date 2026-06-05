@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrandãoTV - O Melhor do Entretenimento Online!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.5), rgba(0,0,0,0.95)), 
+                              url('https://imgur.com/zLQJ1NI.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .btn-primary {
+            background-color: #e50914;
+            transition: transform 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #f40612;
+            transform: scale(1.05);
+        }
+        .faq-item {
+            background-color: #161616;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .faq-item:hover {
+            border-color: #444;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1.5rem;
+        }
+        .accordion-active .accordion-content {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+        .accordion-active i {
+            transform: rotate(45deg);
+            color: #e50914;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+        
+        .logo-img {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(229, 9, 20, 0.8)) 
+                    drop-shadow(0 0 15px rgba(229, 9, 20, 0.4))
+                    brightness(1.1);
+            transition: all 0.3s ease;
+            animation: pulseNeon 3s infinite ease-in-out, fadeInLogo 1s ease-out;
+        }
+        
+        .logo-img:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 10px rgba(229, 9, 20, 1)) 
+                    drop-shadow(0 0 25px rgba(229, 9, 20, 0.6))
+                    brightness(1.3);
+            animation-play-state: paused;
+        }
+
+        @keyframes pulseNeon {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(229, 9, 20, 0.7)) 
+                        drop-shadow(0 0 15px rgba(229, 9, 20, 0.3))
+                        brightness(1.1);
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 12px rgba(229, 9, 20, 1)) 
+                        drop-shadow(0 0 30px rgba(229, 9, 20, 0.6))
+                        brightness(1.4);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fadeInLogo {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+            color: #888;
+        }
+        .social-icon:hover {
+            color: #e50914;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5515997772881?text=Olá,%20gostaria%20de%20mais%20informações." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="absolute top-0 w-full z-50 flex items-center justify-between px-6 py-6 md:px-16 bg-gradient-to-b from-black/90 to-transparent">
+        <div class="flex items-center gap-2">
+            <img src="https://i.imgur.com/YaaRHWh.png" alt="Logo BrandãoTV" class="logo-img" onerror="this.src='https://via.placeholder.com/150x50?text=BrandaoTV'">
+        </div>
+        <nav class="hidden lg:flex gap-6 text-sm font-semibold text-white">
+            <a href="#inicio" class="hover:text-gray-300">Início</a>
+            <a href="#vantagens" class="hover:text-gray-300">Vantagens</a>
+            <a href="#planos" class="hover:text-gray-300">Planos</a>
+            <a href="#faq" class="hover:text-gray-300">FAQ</a>
+        </nav>
+        <div>
+            <a href="#planos" class="btn-primary px-5 py-2 rounded text-sm font-semibold text-white">Adquira Já</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pb-12">
+        <div class="max-w-5xl pt-32">
+            <span class="text-[#e50914] font-bold tracking-widest uppercase text-sm mb-4 block">A Revolução da Televisão</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-6 leading-tight text-white drop-shadow-2xl">O Melhor do Entretenimento Online!</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-100 font-medium drop-shadow-md">Mais de 150.000 conteúdos em Alta Definição.</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#planos" class="btn-primary py-4 px-12 rounded-full text-xl font-bold flex items-center justify-center gap-2 text-white shadow-xl">
+                    Ver Planos <i class="fas fa-play"></i>
+                </a>
+                <a href="https://wa.me/5515997772881?text=Olá,%20gostaria%20de%20Testar." class="bg-white/10 hover:bg-white/20 backdrop-blur-md py-4 px-12 rounded-full text-xl font-bold flex items-center justify-center gap-2 text-white border border-white/20">
+                    Teste Grátis <i class="fas fa-vial"></i>
+                <a href="https://new.ntfut.com/brandaotv" target="_blank" class="bg-zinc-900/80 hover:bg-zinc-800 backdrop-blur-md py-4 px-8 rounded-full text-lg font-bold flex items-center justify-center gap-2 text-white border border-zinc-700 hover:border-red-500 transition w-full md:w-auto">
+                    Jogos do Dia <i class="fas fa-calendar-day text-red-500"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-white flex items-center justify-center gap-2 font-bold text-lg drop-shadow-md">
+                <i class="fas fa-check-circle text-green-400"></i> Ativação imediata em 5 minutos
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="vantagens" class="py-20 px-8 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white uppercase tracking-tighter">Porquê escolher o nosso serviço?</h2>
+                <div class="h-1.5 w-24 bg-[#e50914] mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12 text-center">
+                <div class="p-8 trust-badge rounded-3xl">
+                    <i class="fas fa-tv text-5xl text-[#e50914] mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Qualidade Ultra HD</h3>
+                    <p class="text-gray-400">Conteúdo em Full HD com tecnologia anti-freeze para uma experiência sem travamentos.</p>
+                </div>
+                <div class="p-8 trust-badge rounded-3xl">
+                    <i class="fas fa-futbol text-5xl text-[#e50914] mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Esportes ao vivo, sem limites.</h3>
+                    <p class="text-gray-400">Futebol, UFC, basquete, Fórmula 1 e muito mais — tudo organizado para você acessar em segundos e não perder nenhum lance.</p>
+                </div>
+                <div class="p-8 trust-badge rounded-3xl">
+                    <i class="fas fa-mobile-alt text-5xl text-[#e50914] mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Multi-dispositivo</h3>
+                    <p class="text-gray-400">Assista em sua SmarTV, TV Box, Celular ou Computador. Leva a tua TV para qualquer lugar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="planos" class="py-24 px-6 bg-[#0a0a0a] text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-2 text-white">Escolha seu plano</h2>
+        
+        <!-- Contador de Clientes Ativos -->
+        <div class="flex items-center justify-center gap-2 mb-4">
+            <span class="relative flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <p class="text-green-500 font-bold text-lg">+ de 1.200 clientes ativos.</p>
+        </div>
+
+
+        <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+            <!-- Mensal -->
+            <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:border-red-500 transition flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg text-gray-400">Mensal</h3>
+                    <p class="text-3xl font-bold mt-2 text-white">R$ 25,00</p>
+                    <p class="text-gray-500 text-sm mb-6">por mês</p>
+
+                    <ul class="text-sm text-gray-300 space-y-2 mb-6 text-left">
+                        <li>✔ 1 tela</li>
+                        <li>✔ +150.000 conteúdos</li>
+                        <li>✔ HD e 4K</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5515997772881?text=Olá,%20quero%20o%20*Plano%20Mensal*" class="w-full bg-zinc-800 hover:bg-red-600 transition py-3 rounded-xl font-bold text-white">Começar</a>
+            </div>
+
+            <!-- Trimestral -->
+            <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:border-red-500 transition flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg text-gray-400">Trimestral</h3>
+                    <p class="text-3xl font-bold mt-2 text-white">R$ 75,00</p>
+                    <p class="text-gray-500 text-sm mb-6">3 meses</p>
+
+                    <ul class="text-sm text-gray-300 space-y-2 mb-6 text-left">
+                        <li>✔ 1 tela</li>
+                        <li>✔ Suporte prioritário</li>
+                        <li>✔ Sem fidelidade</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5515997772881?text=Olá,%20quero%20o%20*Plano%20Trimestral*" class="w-full bg-zinc-800 hover:bg-red-600 transition py-3 rounded-xl font-bold text-white">Começar</a>
+            </div>
+
+            <!-- Semestral (Destaque) -->
+            <div class="bg-gradient-to-b from-red-600 to-red-800 rounded-2xl p-6 shadow-xl scale-105 flex flex-col justify-between relative z-10">
+                <div>
+                    <p class="text-sm font-semibold mb-2 text-white">MAIS VANTAJOSO</p>
+                    <h3 class="text-lg text-white">Semestral</h3>
+                    <p class="text-3xl font-bold mt-2 text-white">R$ 125,00</p>
+                    <p class="text-sm mb-4 text-red-100">Economize 17%</p>
+
+                    <ul class="text-sm space-y-2 mb-6 text-left text-white">
+                        <li>✔ 1 tela</li>
+                        <li>✔ VOD Premium</li>
+                        <li>✔ Ativação do APP - Grátis</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="https://wa.me/5515997772881?text=Olá,%20quero%20o%20*Plano%20Semestral*" class="w-full bg-white text-black font-semibold py-3 rounded-xl block">Quero acesso</a>
+                    <p class="text-xs mt-3 text-red-100">⏳ Oferta limitada</p>
+                </div>
+            </div>
+
+            <!-- Anual -->
+            <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 hover:border-red-500 transition flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg text-gray-400">Anual</h3>
+                    <p class="text-3xl font-bold mt-2 text-white">R$ 250,00</p>
+                    <p class="text-gray-500 text-sm mb-6">R$ 20,83/mês</p>
+
+                    <ul class="text-sm text-gray-300 space-y-2 mb-6 text-left">
+                        <li>✔ 1 tela</li>
+                        <li>✔ Ativação do APP - Grátis</li>
+                        <li>✔ Melhor custo-benefício</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5515997772881?text=Olá,%20quero%20o%20*Plano%20Anual*" class="w-full bg-zinc-800 hover:bg-red-600 transition py-3 rounded-xl font-bold text-white">Começar</a>
+            </div>
+
+        </div>
+
+        <p class="text-gray-500 text-sm mt-10 italic">Compatível com Smart TV, celular e TV Box</p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-4 md:px-8 bg-black">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-white uppercase tracking-tighter">Perguntas Frequentes</h2>
+            <p class="text-gray-400 text-center mb-12 italic text-lg">Tudo o que precisas de saber sobre o nosso serviço.</p>
+            
+            <div class="space-y-4">
+                <div class="faq-item" onclick="toggleAccordion(this)">
+                    <button class="w-full p-6 flex justify-between items-center text-left">
+                        <span class="text-lg font-bold text-white">O que é IPTV?</span>
+                        <i class="fas fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 leading-relaxed">
+                            IPTV (Internet Protocol Television) é um serviço de streaming que transmite conteúdo de TV pela internet. Diferente da TV a cabo tradicional, o IPTV usa sua conexão de internet para entregar filmes, séries, canais ao vivo e muito mais diretamente para seu dispositivo.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleAccordion(this)">
+                    <button class="w-full p-6 flex justify-between items-center text-left">
+                        <span class="text-lg font-bold text-white">Onde posso instalar o IPTV?</span>
+                        <i class="fas fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 leading-relaxed">
+                            Pode instalar e utilizar o nosso serviço em <b>Smart TVs, Aparelhos TV Box, Fire Stick, Celulares (Android e iOS), Tablets, Computadores e Notebooks</b>. Fornecemos suporte para configuração em todos eles.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleAccordion(this)">
+                    <button class="w-full p-6 flex justify-between items-center text-left">
+                        <span class="text-lg font-bold text-white">Quais as formas de pagamento?</span>
+                        <i class="fas fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 leading-relaxed">
+                            Aceitamos PIX e Cartão de Crédito para sua total comodidade e segurança.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleAccordion(this)">
+                    <button class="w-full p-6 flex justify-between items-center text-left">
+                        <span class="text-lg font-bold text-white">Tenho direito a suporte técnico?</span>
+                        <i class="fas fa-plus transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 leading-relaxed">
+                            Sim! Oferecemos suporte técnico via WhatsApp e Telegram todos os dias para ajudar com configurações ou qualquer dúvida sobre a sua lista de canais.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-black border-t border-white/5 px-8 text-center text-gray-500">
+        <div class="flex items-center justify-center gap-2 mb-6">
+            <img src="https://i.imgur.com/YaaRHWh.png" alt="Logo BrandãoTV" class="logo-img opacity-100" onerror="this.src='https://via.placeholder.com/150x50?text=BrandaoTV'">
+        </div>
+        
+        <div class="flex justify-center gap-8 mb-10">
+            <a href="https://www.instagram.com/brandao.tv/" target="_blank" class="social-icon text-3xl">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61574311328495" target="_blank" class="social-icon text-3xl">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://t.me/Brandao_TV" target="_blank" class="social-icon text-3xl">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+        </div>
+
+        <p class="mb-2 text-gray-400 font-medium">&copy; 2019 BrandãoTV. Todos os direitos reservados.</p>
+        <p class="text-xs uppercase tracking-[0.3em] text-gray-600 font-bold">O Melhor do Entretenimento Online!</p>
+    </footer>
+
+    <script>
+        function toggleAccordion(element) {
+            const isActive = element.classList.contains('accordion-active');
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('accordion-active');
+                }
+            });
+            element.classList.toggle('accordion-active');
+        }
+    </script>
+</body>
+</html>
